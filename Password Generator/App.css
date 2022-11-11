@@ -1,0 +1,157 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+    background: black;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  font-family: "Work Sans", sans-serif;
+}
+.container {
+  animation: coloranimation 6s linear infinite;
+  background-image: linear-gradient(
+    90deg,
+    #ff0000,
+    #ffff00,
+    #00ff00,
+    #00ffff,
+    #0000ff,
+    #ff00ff,
+    #ff0000,
+    #ffff00
+  );
+  background-size: 700% 100%;
+  width: 460px;
+  padding: 5px;
+  border-radius: 10px;
+}
+.wrapper {
+  background: black;
+  padding: 65px;
+  border-radius: 10px;
+}
+.wrapper .title {
+  font-size: 19px;
+  font-weight: 300;
+  text-align: center;
+  margin-top: 3px;
+  color: white;
+}
+.wrapper .password-box {
+  height: 45px;
+  width: 310px;
+  border: 1px solid #69c8aa;
+  display: flex;
+  align-items: center;
+  margin-top: 22px;
+  border-radius: 3px;
+  padding-left: 10px;
+}
+.wrapper .password-box input {
+  all: unset;
+  height: 43px;
+  width: 270px;
+  color: white;
+}
+.wrapper .password-box button {
+  all: unset;
+  color: white;
+  margin-left: -6px;
+  cursor: pointer;
+}
+.wrapper .password-box button i {
+  font-size: 23px;
+}
+.wrapper .refresh-btn {
+  all: unset;
+  height: 40px;
+  width: 310px;
+  background: #69c8aa;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.wrapper .password-length {
+  height: 60px;
+  width: 310px;
+  margin-top: 30px;
+  color: white;
+}
+.wrapper .password-length p {
+  margin-top: 50px;
+  color: #69c8aa;
+}
+.wrapper .password-length input[type="range"] {
+  -webkit-appearance: none;
+  height: 7px;
+  width: 310px;
+  background: white;
+  border-radius: 5px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+.wrapper .password-length input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 100%;
+  background: white;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  cursor: pointer;
+}
+.wrapper .settings h4 {
+  font-size: 14px;
+  color: #69c8aa;
+}
+.wrapper .settings div {
+  height: 30px;
+  width: 310px;
+  margin-top: 8px;
+  font-size: 15px;
+  position: relative;
+  top: 8px;
+  color: white;
+}
+.wrapper .settings div input[type="checkbox"] {
+  float: right;
+  -webkit-appearance: none;
+  height: 18px;
+  width: 18px;
+  background: white;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
+}
+.wrapper .settings div input[type="checkbox"]::after {
+  content: "\2713";
+  font-family: "Material Icons";
+  position: absolute;
+  display: none;
+}
+.wrapper .settings div input[type="checkbox"]:checked {
+  background: #69c8aa;
+  transition: all 0.2s;
+}
+.wrapper .settings div input[type="checkbox"]:checked::after {
+  display: block;
+  color: white;
+  transition: all 0.2s;
+}
+@keyframes coloranimation {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}

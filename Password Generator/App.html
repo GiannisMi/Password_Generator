@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generate</title>
+    <link rel="stylesheet" href="./App.css" />
+    <link href='https://css.gg/copy.css' rel='stylesheet'>
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <p class="title">PASSWORD GENERATOR</p>
+        <h4 class="title2">Generate a secure password</h4>
+        <div class="password-box">
+          <input
+            type="text"
+            name=""
+            class="password"
+            placeholder="Generate a password"
+            value="SZa#AYt@-b"
+            disabled
+          />
+          <button class="copy-btn">
+            <i class="gg-copy"></i>
+          </button>
+        </div>
+        <button class="refresh-btn">Generate password</button>
+        <div class="password-length">
+          <p>Length(6)</p>
+          <input type="range" name="" id="" min="6" max="32" value="6" />
+        </div>
+        <div class="settings">
+          <h4>Settings</h4>
+          <div>
+            <label form="uppercase">Iclude Uppercase</label>
+            <input type="checkbox" id="uppercase" />
+          </div>
+          <div>
+            <label form="lowercase">Iclude Lowercase</label>
+            <input type="checkbox" id="lowercase" />
+          </div>
+          <div>
+            <label form="numbers">Iclude Numbers</label>
+            <input type="checkbox" id="numbers" />
+          </div>
+          <div>
+            <label form="symbols">Iclude Symbols</label>
+            <input type="checkbox" id="symbols" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      type="text/javascript"
+      src="http://code.jquery.com/jquery-latest.min.js"
+    ></script>
+    <script src="./App.js"></script>
+  </body>
+</html>
