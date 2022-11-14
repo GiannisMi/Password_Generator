@@ -1,51 +1,42 @@
-const input = $(".password-box input");
-const generate_btn = $(".refresh-btn");
-const copy_btn = $(".copy-btn");
-const password_length = $(".password-length input");
-const checkboxes = $(".settings div input");
-const min_length = $(".password-length p");
+const input = document.querySelector(".password-box input");
+const generate_btn = document.querySelector(".refresh-btn");
+const copy_btn = document.querySelector(".copy-btn");
+const password_length = document.querySelector(".password-length input");
+const checkboxes = document.querySelectorAll(".settings div input");
+const min_length = document.querySelector(".password-length p");
 
 const allKeys = {
   uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
   lowercase: "abcdefghijklmnopqrstuvwxyz",
-  numbers: "01234567890",
-  symbols: "~-!@#$%^&*()_+}{[];:'?/>.<,",
+  numbers: "0123456789",
+  symbols: "-!@#$%^&*()_+}{[];:?/>.<,",
+};
+let length = password_length.value;
+
+const updateSlider = () => {
+  length = password_length.value;
+  let string = `Length(${length})`;
+  min_length.innerText = string;
 };
 
-let length = password_length.val();
-let characters = "";
-
-password_length.on("input", function () {
-  length = password_length.val();
-  let string = `Length(${length})`;
-  min_length.text(string);
-});
-
-generate_btn.on("click",function(){
-    if(characters){
-        let password = "";
-        for(i=0; i<length;i++){
-            password += characters.charAt(Math.floor(Math.random() * characters.length));
-            input.val() = password;
-        }
+const generatePassword = () => {
+  let password = "";
+  let characters = "";
+  checkboxes.forEach((checkbox) => {
+    if (checkbox.checked) {
+      password += allKeys[checkbox.id];
     }
-    
-});
-let generatePassword =()=>{
-    let target = event.target;
-    console.log(target);
-    let character = allKeys[target.id];
-    if(target.checked){
-        characters+=character;
-    }else if(characters.indexOf(character)>-1){
-        characters = characters.replace(character,"");
-    }
-}
+  });
+  for (let i = 0; i < length; i++) {
+    characters += password[Math.floor(Math.random() * password.length)];
+  }
+  input.value = characters;
+};
 
-generatePassword();
+const CopyText = () => {
+  navigator.clipboard.writeText(input.value);
+};
 
-
-
-copy_btn.on("click",()=>{
-    navigator.clipboard.writeText(input.val());
-});
+copy_btn.addEventListener("click", CopyText);
+password_length.addEventListener("input", updateSlider);
+generate_btn.addEventListener("click", generatePassword);
