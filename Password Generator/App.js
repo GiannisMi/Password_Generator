@@ -11,6 +11,7 @@ const allKeys = {
   numbers: "0123456789",
   symbols: "-!@#$%^&*()_+}{[];:?/>.<,",
 };
+
 let length = password_length.value;
 
 const updateSlider = () => {
@@ -27,10 +28,17 @@ const generatePassword = () => {
       password += allKeys[checkbox.id];
     }
   });
+  
   for (let i = 0; i < length; i++) {
     characters += password[Math.floor(Math.random() * password.length)];
   }
-  input.value = characters;
+  if(password){
+    input.value = characters;
+  }
+  else{
+    input.value = "";
+  }
+  
 };
 
 const CopyText = () => {
